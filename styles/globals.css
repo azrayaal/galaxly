@@ -61,6 +61,25 @@ body {
   /* background-image: linear-gradient(to left top, #17708e, #115e7f, #0e4c6f, #0e3b5e, #0e2b4d, #112850, #192352, #221e52, #392265, #542375, #721f83, #92118d); */
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 6rem;
+  padding-top: 3rem;
+  padding-right: 6rem;
+  min-height: 100vh;
+}
+@media (max-width: 700px) {
+  .main {
+    padding-left: 0rem;
+    padding-top: 10rem;
+    padding-right: 0rem;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -79,7 +98,7 @@ a {
 }
 
 * button {
-  background-color: #f46668 !important;
+  background-color: #f46668;
   text-decoration: none;
   color: #ffff;
 }

@@ -7,7 +7,15 @@
   padding-top: 3rem;
   padding-right: 6rem;
   min-height: 100vh;
+
   /* background-color: white; */
+}
+@media (max-width: 700px) {
+  .main {
+    padding-left: 0rem;
+    padding-top: 10rem;
+    padding-right: 0rem;
+  }
 }
 
 /* Enable hover only on non-touch devices */
