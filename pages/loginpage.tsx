@@ -1,10 +1,25 @@
-import React from 'react';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, provider } from '../firebase/firebase';
+
+import { useRouter } from 'next/router';
 
 export default function Loginpage() {
+  const route = useRouter();
+
+  const signInWithGoogle = async () => {
+    await signInWithPopup(auth, provider).then((data) => {
+      console.log('diambil dari lgpage', data.user);
+      localStorage.setItem('tokenfb', JSON.stringify(data.user));
+    });
+
+    route.push('/dashboard');
+  };
+
   return (
     <main className="main justify-center">
       <div className=" ">
         <button
+          onClick={signInWithGoogle}
           className="sm:mx-auto mx-0 lg:mx-0 font-semibold rounded-xl py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-transparent border-2 border-gray-50"
           style={{ display: 'inline-block' }}
         >

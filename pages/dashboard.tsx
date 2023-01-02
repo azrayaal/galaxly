@@ -1,8 +1,20 @@
+import Cookies from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Dashboard() {
+  const [user, setUser] = useState({
+    displayName: '',
+  });
+
+  useEffect(() => {
+    const dataFromLocal = localStorage.getItem('tokenfb');
+    const dataItemLocals = JSON.parse(dataFromLocal!);
+    console.log('datadatrilocal', dataItemLocals);
+    setUser(dataItemLocals);
+  }, []);
+
   return (
     <>
       <nav id="header" className="fixed w-full z-30 top-0 text-white">
@@ -28,7 +40,7 @@ export default function Dashboard() {
       </nav>
 
       <main className="main">
-        <div className="w-full sm:mt-16 mt-0 text-xl text-gray-300 sm:ml-0 ml-5">Your Links:</div>
+        <div className="w-full sm:mt-16 mt-0 text-xl text-gray-300 sm:ml-0 ml-5">{`${user.displayName}'s Links:`}</div>
 
         <div className=" w-full grid sm:grid-cols-3 grid-cols-1 gap-4 mt-4 ">
           <div className="sm:mx-12 mx-5 max-w-sm rounded-2xl overflow-hidden shadow-lg bg-transparent border-2 border-gray-50">
@@ -59,7 +71,7 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-            <div className="px-6 pt-4 pb-2  flex justify-around">
+            <div className="px-3 pt-4 pb-2 flex justify-around">
               <span className="bg-transparent border-2 border-gray-50 inline-block rounded-md px-3 py-3 mb-2 text-gray-700">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARpJREFUSEvtVdF1gzAMPIUBmg3SBQr2BhkhI9DJygYdodlAQBZINsgCifvUxjyTZxu9EvJV/wHiTrqTLMLChxbGx3MJDsxbR/QB4DVSWVMa8y7ve+Yav3HRUxozJD6qoGvbIwGbjGwqkiRB37ZOwMOAnEepSh5GwMzrgojvJX0IgYCviL4IMA44hdLOJgjBAXQX57YFsPPGzyKIgVtrz2F3/ZkgB+6bQYwvrW3886hNc12kAY91nIpAC953XVNWVR0SqQh6ZjHw0xvqNb/P+KbAMIzyXUVwM3B3AfYp8J+YyKCqCTS37j/BpEoaiWQiXyaRMgFyL1XGDPtkZLIsnCtRM7ETkvACvnKufrN2H53kOZmn/n3uTl6igm/4bcoZlvHtzwAAAABJRU5ErkJggg==" />
               </span>
