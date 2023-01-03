@@ -64,7 +64,7 @@ export default function Dashboard() {
             <span>{`${user.displayName}'s Links:`} </span>
             <div className="align-middle sm:hidden inline-block ml-4">
               <button
-                className="  mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-2 px-5 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-gray-400 bg-transparent border-2 border-gray-50 text-gray-50"
+                className="  mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-2 px-5 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-gray-400 bg-slate-700 text-gray-50"
                 onClick={() => setShowModal(true)}
               >
                 create link
