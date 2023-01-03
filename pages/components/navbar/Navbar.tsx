@@ -35,7 +35,7 @@ export default function Navbar() {
             <ul className="list-reset lg:flex justify-end flex-1 items-center"></ul>
             <Link href="/loginpage">
               <button
-                className="mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-1 px-4 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-transparent border-2 border-gray-50"
+                className="mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-1 px-4 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-slate-700"
                 style={{ display: 'inline-block' }}
               >
                 <img
@@ -65,9 +65,7 @@ export default function Navbar() {
           <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent  p-4 lg:p-0 z-20" id="nav-content">
             <ul className="list-reset lg:flex justify-end flex-1 items-center"></ul>
             <Link href="/loginpage">
-              <button className="mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-1 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-transparent border-2 border-gray-50">
-                Login
-              </button>
+              <button className="mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-1 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-slate-700">Login</button>
             </Link>
           </div>
         </div>

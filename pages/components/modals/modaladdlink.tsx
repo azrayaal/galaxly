@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import { db } from '../../../firebase/firebase';
 interface Modallinkprops {
   setShowModal: any;
 }
 
 export default function Modaladdlink(props: Modallinkprops) {
   const { setShowModal } = props;
+  const [url, setUrl] = useState('');
+  const [namelink, setNameLink] = useState('');
+
+  const handleFormSubmit = async (e: any) => {
+    // e.preventDefault();
+    // let code = uuidv4();
+    // await db.collection('urls').add({
+    //   url: url,
+    //   code: code,
+    // });
+    console.log(url);
+    console.log(namelink);
+    setShowModal(false);
+    // alert('This is your URL - http://localhost:3000/l/' + code);
+  };
+
   return (
     <>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-        <div className="relative sm:w-3/12 w-auto my-6 mx-auto max-w-3xl bg-slate-500 rounded-xl ">
+        <div className="relative sm:w-3/12 w-auto my-6 mx-auto max-w-3xl bg-slate-700 rounded-xl ">
           {/*content*/}
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none ">
             <div className="relative p-6 flex-auto mt-5">
-              <form className="space-y-6" action="#">
+              <form className="space-y-6" onSubmit={handleFormSubmit}>
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Name Link
@@ -21,6 +38,8 @@ export default function Modaladdlink(props: Modallinkprops) {
                     type="text"
                     name="nameLink"
                     id="nameLink"
+                    value={namelink}
+                    onChange={(e) => setNameLink(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     placeholder="Galaxyly Link"
                     required
@@ -34,6 +53,8 @@ export default function Modaladdlink(props: Modallinkprops) {
                     type="text"
                     name="originalLink"
                     id="originalLink"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                     placeholder={`https://azrayaal.space`}
                     required
