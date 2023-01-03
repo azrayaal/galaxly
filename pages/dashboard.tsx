@@ -52,8 +52,21 @@ export default function Dashboard() {
         </nav>
 
         <main className="main">
-          <div className="w-full sm:mt-16 mt-0 text-xl text-gray-300 sm:ml-0 ml-5">{`${user.displayName}'s Links:`}</div>
+          {/* name */}
+          <div className="w-full sm:mt-16 mt-0 mb-3 text-xl text-gray-300 sm:ml-0 ml-5 inline-block">
+            <span>{`${user.displayName}'s Links:`} </span>
+            <div className="align-middle sm:hidden inline-block ml-4">
+              <button
+                className="  mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-2 px-5 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-gray-400 bg-transparent border-2 border-gray-50 text-gray-50"
+                onClick={() => setShowModal(true)}
+              >
+                create link
+              </button>
+            </div>
+          </div>
+          {/* emd of name */}
 
+          {/* card */}
           <div className=" w-full grid sm:grid-cols-3 grid-cols-1 gap-4 mt-4 ">
             <div className="sm:mx-12 mx-5 max-w-sm rounded-2xl overflow-hidden shadow-lg bg-transparent border-2 border-gray-50">
               <div className="px-6 py-4">
@@ -98,6 +111,7 @@ export default function Dashboard() {
                 </span>
               </div>
             </div>
+            {/* end of card */}
           </div>
         </main>
 
