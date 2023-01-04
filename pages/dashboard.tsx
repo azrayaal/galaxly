@@ -1,13 +1,20 @@
+import axios from 'axios';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Modaladdlink from './components/modals/modaladdlink';
 
 export default function Dashboard() {
   const [showModal, setShowModal] = useState(false);
   const [isLogin, seIsLogin] = useState(false);
+  const [url, setUrl] = useState('');
+  const [namelink, setNameLink] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const [user, setUser] = useState({
     displayName: '',
   });
@@ -26,9 +33,31 @@ export default function Dashboard() {
     }
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const res = await axios(`https://api.shrtco.de/v2/shorten?url=${url}`);
+      console.log('datapost', res.data.result.short_link);
+      toast.success('Berhasil tambah link', { theme: 'colored' });
+    } catch (err) {
+      toast.error('harap memasukan link yang benar', { theme: 'colored' });
+    }
+  };
+
+  const handleFormSubmit = async () => {
+    fetchData();
+    setShowModal(false);
+  };
+
+  useEffect(() => {
+    if (handleFormSubmit.length) {
+      fetchData();
+    }
+  }, []);
+
   if (isLogin) {
     return (
       <>
+        <ToastContainer />
         <Head>
           <title>Galaxly | Dashboard</title>
           <meta name="description" content="Shortner Link Url" />
@@ -122,7 +151,7 @@ export default function Dashboard() {
           </div>
         </main>
 
-        {showModal ? <Modaladdlink setShowModal={setShowModal} /> : null}
+        {showModal ? <Modaladdlink setShowModal={setShowModal} url={url} setUrl={setUrl} namelink={namelink} setNameLink={setNameLink} handleFormSubmit={handleFormSubmit} /> : null}
       </>
     );
   }

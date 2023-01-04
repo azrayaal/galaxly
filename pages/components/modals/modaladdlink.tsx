@@ -1,26 +1,14 @@
-import React, { useState } from 'react';
-// import { db } from '../../../firebase/firebase';
 interface Modallinkprops {
   setShowModal: any;
+  url: any;
+  setUrl: any;
+  namelink: any;
+  setNameLink: any;
+  handleFormSubmit: () => void;
 }
 
 export default function Modaladdlink(props: Modallinkprops) {
-  const { setShowModal } = props;
-  const [url, setUrl] = useState('');
-  const [namelink, setNameLink] = useState('');
-
-  const handleFormSubmit = async (e: any) => {
-    // e.preventDefault();
-    // let code = uuidv4();
-    // await db.collection('urls').add({
-    //   url: url,
-    //   code: code,
-    // });
-    console.log(url);
-    console.log(namelink);
-    setShowModal(false);
-    // alert('This is your URL - http://localhost:3000/l/' + code);
-  };
+  const { setShowModal, url, setUrl, namelink, setNameLink, handleFormSubmit } = props;
 
   return (
     <>
