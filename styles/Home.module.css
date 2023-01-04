@@ -6,6 +6,7 @@
   padding-left: 6rem;
   padding-top: 3rem;
   padding-right: 6rem;
+  height: auto !important;
   min-height: 100vh;
 
   /* background-color: white; */
