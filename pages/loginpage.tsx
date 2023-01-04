@@ -1,9 +1,9 @@
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../firebase/firebase';
 
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 
 export default function Loginpage() {
   const [isLogin, seIsLogin] = useState(false);
@@ -23,7 +23,6 @@ export default function Loginpage() {
 
   const signInWithGoogle = async () => {
     await signInWithPopup(auth, provider).then((data) => {
-      console.log('diambil dari lgpage', data.user);
       localStorage.setItem('tokenfb', JSON.stringify(data.user));
     });
     route.push('/dashboard');
