@@ -10,6 +10,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   console.log(' user dari authcntx', user);
+  // localStorage.setItem('dataUser', JSON.stringify(user));
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -28,7 +29,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   }, []);
 
   const signup = (email: string, password: string, displayname: string) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password, displayname);
   };
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);

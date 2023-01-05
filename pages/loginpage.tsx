@@ -19,15 +19,15 @@ export default function Loginpage() {
     password: '',
   });
 
-  // useEffect(() => {
-  //   const dataFromLocal = localStorage.getItem('tokenfb');
-  //   if (dataFromLocal) {
-  //     seIsLogin(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const dataFromLocal = localStorage.getItem('dataUser');
+    if (dataFromLocal) {
+      seIsLogin(true);
+    }
+  }, []);
 
   const signOut = () => {
-    // localStorage.clear();
+    localStorage.clear();
     logout();
     window.location.reload();
   };
@@ -45,9 +45,10 @@ export default function Loginpage() {
     try {
       const res = await login(data.email, data.password);
       localStorage.setItem('dataUser', JSON.stringify(res.user));
+      // window.location.reload();
       seIsLogin(true);
       route.push('/dashboard');
-      console.log('user', res);
+      console.log('userdrhandle', res);
     } catch (error) {
       console.log(error);
       toast.error(`${error}`, { theme: 'colored' });

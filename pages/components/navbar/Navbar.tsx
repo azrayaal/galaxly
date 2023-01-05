@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isLogin, setIslogin] = useState(false);
 
   useEffect(() => {
-    const dataFromLocal = localStorage.getItem('tokenfb');
+    const dataFromLocal = localStorage.getItem('dataUser');
     if (dataFromLocal) {
       const dataItemLocals = JSON.parse(dataFromLocal!);
       console.log('datadatrilocal', dataItemLocals);
