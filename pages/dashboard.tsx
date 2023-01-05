@@ -30,6 +30,12 @@ export default function Dashboard() {
     setShortLinks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
+  const deleteShortLink = async (id: any) => {
+    // const shortLinkDoc = doc(db, 'shortlink', id);
+    // console.log('shortLink', shortLinkDoc);
+    // await deleteDoc(shortLinkDoc);
+  };
+
   useEffect(() => {
     getDataShortLinkFromFireBase();
   }, []);
@@ -37,14 +43,14 @@ export default function Dashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    const dataFromLocal = localStorage.getItem('tokenfb');
+    const dataFromLocal = localStorage.getItem('dataUser');
     if (dataFromLocal) {
       const dataItemLocals = JSON.parse(dataFromLocal!);
-      console.log('datadatrilocal', dataItemLocals);
+      // console.log('datadatrilocal', dataItemLocals);
       setUser(dataItemLocals);
       seIsLogin(true);
     } else {
-      router.push('/loginpage');
+      // router.push('/loginpage');
     }
   }, []);
 
@@ -82,7 +88,7 @@ export default function Dashboard() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <Link rel="icon" href="/galaxly-logo-removebg-preview.png" />
         </Head>
-        <nav id="header" className="w-full z-30 top-0 text-white">
+        <nav id="header" className="w-full z-30 top-0 text-white ">
           <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
             <div className="pl-4 flex items-center" style={{ display: 'inline' }}>
               <Link className=" text-white no-underline hover:no-underline text-2xl lg:text-4xl flex" href="/" style={{ verticalAlign: 'baseline' }}>
@@ -106,9 +112,9 @@ export default function Dashboard() {
         </nav>
 
         <main className="main">
-          <div className="mb-16">
+          <div className="mb-16 ">
             {/* name */}
-            <div className="w-full sm:mt-16 mt-0 mb-3 text-xl text-gray-300 sm:ml-0 ml-5 inline-block">
+            <div className=" w-full sm:mt-16 mt-0 mb-3 text-xl text-gray-300 sm:ml-0 ml-5 inline-block">
               <span>{`${user.displayName}'s Links:`} </span>
               <div className="align-middle sm:hidden inline-block ml-4">
                 <button
@@ -160,9 +166,9 @@ export default function Dashboard() {
                       <span className="bg-slate-700 inline-block rounded-md px-3 py-3 mb-2 text-gray-700">
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAPVJREFUSEu9ldERgjAMQBMdQEdwAA/ICE6iTuQI4gaO4AYBzgEcgQU0XjnhBFpMKZjv8l6SJgVh5sCZ+RAkKJgPJsGIKHUlOlpQwRHPFVjk6JKMEjDzeon4AIBVk7lD4i0wcCIq78zJC/HWSBAvURxXLfsOL8GnLaeFyG5LlDUSxKsNbkRqQavnAGUtYeYNEZl2WUMl6MBrUPkUoSG4qgIHHMDRc687KPI8BZF9r3YlfLCCKeBOwVRwq8AJH9jWofesN0VFlknvg5FwewVdQQD8tyAQrtqD0P+FapNDJP8XWKfIo4QoSVpJ68Z0SoEHS3V09jt4A4JofhnQlVrOAAAAAElFTkSuQmCC" />
                       </span>
-                      <span className="bg-slate-700 inline-block rounded-md px-3 py-3 mb-2 text-gray-700">
+                      <button className="bg-slate-700 inline-block rounded-md px-3 py-3 mb-2 text-gray-700" onClick={deleteShortLink}>
                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALVJREFUSEvtldsNwjAMRa9ZhAVQsDdhBNiAEdiEjsAmTisGgEUwX0VQpYlbtfy0+Yysc5ybF2HmQTPzURQ0qkcQXZONmJ2CSJVrMiu4q/KLSHOAjZnsRGJfzY+gidGmiCwwf7j/FUzRfZeR3IOxUX1H04oWIGiX3Y0tNT8qolVQPEVrRAuIaMgD6L5odYwPArZD4ADqwMy+11T1AKILgL1HYsCTzM5B5OYSeKDemuKn7wX11b0Blo+hGbsz/90AAAAASUVORK5CYII=" />
-                      </span>
+                      </button>
                     </div>
                     {/* end of card */}
                   </div>

@@ -16,7 +16,7 @@ export default function Home() {
       {/* <nav>a</nav> */}
       <Navbar />
       <main className="main">
-        <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
+        <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center mt-[3rem]">
           {/* <!--Left Col--> */}
           <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left  ">
             <p className="leading-normal">Link Shortner!</p>
