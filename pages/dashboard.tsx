@@ -19,7 +19,6 @@ export default function Dashboard() {
   const [namelink, setNameLink] = useState('');
   const [user, setUser] = useState({
     displayName: '',
-    email: '',
   });
   //
   const [shortLinks, setShortLinks] = useState<any | null>([]);
@@ -116,7 +115,7 @@ export default function Dashboard() {
           <div className="mb-16 ">
             {/* name */}
             <div className=" w-full sm:mt-16 mt-0 mb-3 text-xl text-gray-300 sm:ml-0 ml-5 inline-block">
-              <span>{`${user.email}'s Links:`} </span>
+              <span>{`${user.displayName}'s Links:`} </span>
               <div className="align-middle sm:hidden inline-block ml-4">
                 <button
                   className="  mx-auto lg:mx-0 font-semibold rounded-xl mt-2 lg:mt-0 py-2 px-5 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out bg-gray-400 bg-slate-700 text-gray-50"

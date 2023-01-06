@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { updateProfile, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './firebase';
 
 const AuthContext = createContext<any>({});
@@ -18,7 +18,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
         setUser({
           uid: user.uid,
           email: user.email,
-          displayname: user.displayName,
+          displayName: user.displayName,
         });
       } else {
         setUser(null);
@@ -28,9 +28,16 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     return () => unsubscribe();
   }, []);
 
-  const signup = (email: string, password: string, displayname: string) => {
-    return createUserWithEmailAndPassword(auth, email, password, displayname);
+  const signup = async (email: string, password: string, displayName: string) => {
+    return createUserWithEmailAndPassword(auth, email, password).then((userCred) => {
+      updateProfile(userCred.user, { displayName });
+    });
   };
+
+  // const signup = (email: string, password: string) => {
+  //   return createUserWithEmailAndPassword(auth, email, password);
+  // };
+
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
   };

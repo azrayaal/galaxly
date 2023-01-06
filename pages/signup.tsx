@@ -6,7 +6,7 @@ import { useAuth } from '../firebase/AuthContext';
 export default function Loginpage() {
   const { user, signup } = useAuth();
   const [data, setData] = useState({
-    displayname: '',
+    displayName: '',
     email: '',
     password: '',
   });
@@ -16,7 +16,7 @@ export default function Loginpage() {
   const handleSignUP = async (e: any) => {
     e.preventDefault();
     try {
-      await signup(data.email, data.password, data.displayname);
+      await signup(data.email, data.password, data.displayName);
       route.push('/loginpage');
     } catch (error) {
       console.log(error);
@@ -49,10 +49,10 @@ export default function Loginpage() {
                     onChange={(e: any) =>
                       setData({
                         ...data,
-                        displayname: e.target.value,
+                        displayName: e.target.value,
                       })
                     }
-                    value={data.displayname}
+                    value={data.displayName}
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="azrayaal"
                     required
