@@ -41,6 +41,7 @@ export default function Navbar() {
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXlJREFUSEvtldFxgkAQhv/1fE9Sgdx4+hpTQaQDOzApIR3YQdJBtILYQbAD8io3A3Zg3oXNHCPOgYegGd/kCX5299vbO34IV77oyvXRCIijaNwhmjLRCMyjvCGikJjDjHkhB4PgVJO1gHi9HlGn8w5g3LDKgLPsTQ6HoSvOCdgX/wZw33KEW84y3wU5AlxQvOjBCTkCJFqbmT637LwaFnhK+bZYApgNJSIzmosvZvbtjS8BNlrPGZha1VcsxEt+cNJ0bq2sTjfHctFTKs/J8+xWkygKQfRYaCyElFIm5jmOY4/SNDb3dXpxhL1+/8kN0JptIAvxIKXcOgBOvcj1lDo0Xl5BBQAgYCFe9yP6tL6JOj1nnAO4aLNvgMax3Ub0jxFVvuTGSu6AlafU4R9SNjutJwR8OfJ+AdxVdJeGk2aXW4KBMM/2nrRhYAYhAtrtlgefYv7hbneCNB2TeQ/0AKwY+JBKLWvtumkkxvBMTGGATfFHbtom4dyYP8B7wxmaFaV8AAAAAElFTkSuQmCC"
               />{' '}
               <span>{user.displayName}</span>
+              <span>{user.displayName}</span>
             </button>
           </Link>
         </div>
